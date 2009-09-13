@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta name="generator" content= "HTML Tidy, see www.w3.org"/>
+        <title>El Bautizador: Integración de Copiagenda de Movistar España</title>
+        <!-- Meta Tags -->
+        <meta name="robots" content="noindex, nofollow"/>
+        <meta name="author" content="http://fernandoguillen.info"/>
+        <meta http-equiv="Content-Type" content= "text/html; charset=utf-8"/>
+        <meta name="description" content= "Integración de The Phone Baptizer con el Copiagenda de Movistar"/>
+        <meta name="keywords" content= "bautizar telefono, recordar telefono, agenda, ruby on rails, ruby, experimento web"/>
+        <link rel="shortcut icon" href= "/images/favicon.ico" type="image/x-icon"/>
+        <!--link rel="stylesheet" href="files/dynamic.css" type="text/css" /-->
+				<%= stylesheet_link_tag 'telephone' %>
+				<%= javascript_include_tag  :defaults %>
+				<script type="text/javascript" src="/javascripts/scriptaculous.js"></script>
+				<script type="text/javascript" src="/javascripts/dan_eastwell_balloons.js"></script>
+				<script type="text/javascript" src="/javascripts/yui/yahoo_dom_events.js"></script>
+				<script>
+					function pillar_phone(){
+						el_select = document.getElementById('select_copia_agenda');
+						contacto = el_select.options[ el_select.selectedIndex ].value;
+						//
+						// coger solo los 9 ultimos caracteres
+						//
+						if (contacto.length > 9) {
+							contacto = contacto.substring( contacto.length-9 );
+						}
+//						alert( opcion.value );
+//						alert( window.parent.document.getElementById( 'main'  ) );
+						window.opener.document.getElementById( 'phone' ).value = contacto;
+						window.close();
+					}
+				</script>
+	
+    </head>
+    <body id="bautizador">
+        <img id="top" src="/images/top.png" alt="" name="top" class="popup"/>
+				<% form_remote_tag :update => 'copia_agenda_select', :url => { :action => 'copia_agenda' } do %>
+        <div id="contenedor" class="popup">
+            <ul id="header" class="popup">
+                <li class="left">
+                    Para cargar datos desde CopiaAgenda.
+                </li>
+            </ul>
+
+            <div id="contenido" class="popup">
+                <div id="main" class="popup">
+                  <h1 class="popup">Descargar tu agenda movistar</h1>
+                  <div id="barra_menu">
+                      <h2>Requisitos</h2>
+                      <p>
+                          Debes estar dado de alta en el servicio
+													<a href="https://copiagenda.movistar.es">movistar copiagenda</a>.
+                      </p>
+                      <h2>Instrucciones</h2>
+                      <p>
+                          Inserta tu teléfono y tu clave.
+													Se cargarán todos los teléfonos de tu agenda.
+													Podrás seleccionar uno que será cargado automáticamente
+													en tu bautizador de teléfonos. Esta operación no tiene
+													ningún coste, o por lo menos así lo indican
+													las especificaciones del servicio. Este módulo sólo lo he podido probar
+													con mi móvil, si tienes problemas porfavor 
+													<a href="http://fernandoguillen.info">contactame</a>.
+                      </p>
+                  </div>
+
+										<hr/>
+										<h2 class="cabecera_formulario popup">Tu teléfono</h2>
+                    <%= text_field_tag :cam_phone %><br/>
+										<hr/>
+										<h2 class="cabecera_formulario popup">Tu clave</h2>
+                    <%= password_field_tag :cam_pass %>
+										<%= submit_tag 'cargar' %>
+										<hr/>
+
+										<div id="copia_agenda_select">
+										</div>
+
+                </div>
+                <!-- main -->
+            </div>
+            <!--contenido-->
+            <div class="footer popup">
+
+            </div>
+        </div>
+        <!--contenedor-->
+				<% end %><!-- form -->
+				
+				<img id="bottom" src= "/images/bottom.png" alt="" name="bottom" class="popup"/>
+		
+<!-- google analytics -->
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-4350313-1");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+    </body>
+</html>

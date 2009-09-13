@@ -1,0 +1,17 @@
+<% if flash[:error] %>
+
+	<div id="error">
+		<p><%= flash[:error] %></p>
+	</div>
+
+<% else %>
+
+	<select size="10" id="select_copia_agenda">
+	<% @cam_contacts.each do |contact| -%>
+	<option value="<%= contact[:phone] %>"><%= contact[:name] %>: <%= contact[:phone] %></option>
+	<% end %>
+	</select>
+	
+	<input type="button" value="pillar" onclick="pillar_phone()"/>
+
+<% end %>

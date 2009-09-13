@@ -1,0 +1,37 @@
+/* ===========
+ * balloons
+ * ===========
+ */
+div.popup_item {
+    position: relative;
+    z-index: 10;
+    padding: 0px 30px 30px 10px;
+    margin-top: 0em;
+    color: black;
+    width: 279px;
+    display: none;
+}
+
+div.balloon_up {
+    background: url("/images/balloons/balloon_up.gif") no-repeat bottom center;
+    height: 101px;
+}
+
+div.balloon_body {
+    background: url("/images/balloons/balloon_body.gif") repeat-y;
+}
+
+div.balloon_body p.nombre {
+    font-size: 40px;
+}
+
+div.balloon_body p.peque {
+    font-size: 10px;
+    margin-top: 20px;
+}
+
+div.balloon_down {
+    background: url("/images/balloons/balloon_down.gif") no-repeat;
+    height: 52px;
+}
+

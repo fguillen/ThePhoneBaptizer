@@ -1,0 +1,52 @@
+== The Phone Baptizer
+
+This is just an experimental project, not professional stuff, and I was starting with Rails at the moment I develop it, so the quality is not so good.
+
+== Wep page
+
+[http://ThePhoneBaptizer.com]
+
+== Instructions to use
+
+=== About
+
+The Phone Baptizer is a tool to offer a possible system to 
+remember easily a phone number.
+
+=== Instructions
+
+Insert your own phone number or the friend's one, select a dictionary (english
+or spanish) y The Phone Baptizer will try to offer you a words, letters and
+numbers combination that could help you to remember the phone number.
+
+=== How it works
+
+The keyboard of any phone has a small letters on the same key of each number.
+When your are pressing the keys to write a phone number the phone knows that
+you want to use the numbers on those keys but at the same time you can 
+be thinking on the letters.
+
+=== Example
+
+If why try to write **'cacao'** on the phone when we are trying to write a phone
+number we'll see that what we are really writing is **'22226'**.
+
+
+If we try to write **'orchestra'** we'll write **'672437872'**.
+
+This is what The Phone Baptizer does but on the opposite direction. **Offer to The Phone Baptizer a phone number and you will see what weird things you can use to remember it**.
+
+
+=== The Baptism
+
+The process to convert a phone number on a sequence of words, letters and numbers is called **'The Baptism'**.
+
+	
+=== Disclaimer
+
+Don't expect you phone number will have a perfect cool word to remember it like **'thekingofworld'**, this is kind of impossible, the most normal that could happen is you obtaining proposed names like **tab11close3**.
+
+I hope that doesn't disappoint you, the system will try to found the longest word that fixes with your phone number, not finding it it'll try to find a small one for a part of your phone number, and so on.
+
+The numbers **'1'** and **'0'** have not a letter conversion
+so that numbers will be never transformed on letters.

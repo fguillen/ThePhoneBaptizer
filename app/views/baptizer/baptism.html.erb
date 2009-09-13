@@ -1,0 +1,58 @@
+<h3>
+	<%= @total_names %> available names
+	<%- if @total_names > @telephoneNames.size -%>, 
+	  only showing the <%= @telephoneNames.size %> most relevant.
+	<% end %>
+</h3>
+<ul>
+<% @telephoneNames.each do |telephoneName| %>
+	<%
+		peso = (telephoneName.peso * (10.0 / @telephoneNames.size )).to_i
+		if peso == 0 
+			peso = 1
+		end
+	%>
+	<li class="size_<%= peso %>">
+		<a class="popup" href="#popup_<%= telephoneName.name %>"><%= telephoneName.name %></a>
+	</li>
+<% end %>
+</ul>
+
+<% @telephoneNames.each do |telephoneName| %>
+	<% 
+		@words = ''
+		telephoneName.words.each do |word| 
+			if @words.size > 0
+				@words = 	@words + ',';
+			end
+			@words = @words + word
+		end 
+	%>
+	
+	<div id="popup_<%= telephoneName.name %>" class="popup_item">
+		<div class="balloon_up"></div>
+		<div class="balloon_body">
+			<p class="nombre"><%= telephoneName.name %></p>
+			<p><%= @words %></p>
+			<!--%= link_to( 
+						'enviar bautizo >>', 
+						"/enviar_sms_popup/?sms_phone_name=#{telephoneName.name}&sms_phone=#{@phone}",
+						:popup => ['sms', 'width=680, height=900, menubar=no, scrollbars=yes'],
+						:class => 'link_sms'
+			) %-->
+			<p class="peque">(toggle clicking on the name)</p>
+		</div>
+		<div class="balloon_down"></div>
+	</div>
+<% end %>
+<script>
+	
+//	dictionary_box_X = YAHOO.util.Dom.getX('dictionary_box');
+//	dictionary_box_Y = YAHOO.util.Dom.getY('dictionary_box');
+	
+//	alert( "dictionary_box_X:" + dictionary_box_X );
+//	alert( "dictionary_box_Y:" + dictionary_box_Y );
+	
+	iniciarBalloons();
+</script>
+
