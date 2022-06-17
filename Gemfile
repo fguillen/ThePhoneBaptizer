@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '2.0.2'
+gem 'rails', '3.2.17'
 gem 'sqlite3'
 gem 'hpricot'
 
